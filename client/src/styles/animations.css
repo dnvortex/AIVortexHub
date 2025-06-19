@@ -1,0 +1,110 @@
+/* Custom animations for DN VORTEX */
+
+/* Gradient text */
+.text-gradient {
+  background: linear-gradient(90deg, #6200EA, #03DAC6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass card effect */
+.glass-card {
+  background: rgba(45, 45, 45, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Card tilt effect */
+.card-tilt {
+  transition: transform 0.3s ease;
+}
+
+.card-tilt:hover {
+  transform: perspective(1000px) rotateX(2deg) rotateY(2deg) scale(1.02);
+}
+
+/* Navbar indicator animation */
+.nav-indicator {
+  height: 2px;
+  bottom: -4px;
+  background-color: #03DAC6;
+  transition: 0.3s;
+}
+
+/* Glow animations */
+.animate-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.animate-glow::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(98, 0, 234, 0.4) 0%,
+    rgba(98, 0, 234, 0) 70%
+  );
+  opacity: 0;
+  animation: pulse-glow 3s ease-out infinite;
+}
+
+@keyframes pulse-glow {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+}
+
+/* Floating animation */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Slow pulse animation */
+.animate-pulse-slow {
+  animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Accessibility considerations */
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-pulse-slow,
+  .animate-glow::after,
+  .card-tilt:hover {
+    animation: none !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
