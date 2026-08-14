@@ -104,7 +104,6 @@
     "bufferutil": "^4.0.8"
   },
   "overrides": {
-    "websocket-driver": "0.7.5",
-    "protobufjs": "7.6.5"
+    "websocket-driver": "0.7.5"
   }
 }
